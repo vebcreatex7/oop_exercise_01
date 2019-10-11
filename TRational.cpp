@@ -78,10 +78,10 @@ int TRational::Compare(const TRational& d1)
 	
 }
 
-void TRational::Print() {
+void TRational::Print(std::ostream& os) {
 	if (this->a == 0 || this->b == 0) {
-		std::cout << 0;
+		os << 0;
 		return;
 	}
-	std::cout << this->a << "/" << this->b;
+	os << this->a << "/" << this->b;
 }

@@ -18,7 +18,7 @@ public:
 	const TRational Mul(const TRational &d1);
 	int Compare(const TRational &d1);
 	void Reduce();
-	void Print();
+	void Print(std::ostream&);
 };
 
 #endif
