@@ -2,6 +2,21 @@
 
 
 
+int TRational::Write(std::istream& in) {
+	int a, b;
+	char c;
+	in >> a;
+	in >> c;
+	in >> b;
+	if (b == 0) {
+		std::cout << "Error. Division by zero\n";
+		return 1;
+	}
+	this->a = a;
+	this->b = b;
+	return 0;
+}
+
 TRational::TRational(int m_a, int m_b) : a(m_a), b(m_b) {
 }
 void TRational::Reduce()

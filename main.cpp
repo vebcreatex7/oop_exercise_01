@@ -4,14 +4,13 @@
 
 int main()
 {
-	int a, b, c, d;
-	char z;
-	std::cin >> a >> z >> b >> c>> z >> d;
-	if (b == 0 || d == 0) {
-		std::cout << "Error. Division by zero\n";
+	
+	TRational d1, d2, ans;
+	if (d1.Write(std::cin) || d2.Write(std::cin) == 1) {
 		return 0;
 	}
-	TRational d1(a, b), d2(c, d), ans;
+	
+	
 	std::cout << "Add = ";
 	ans = d1.Add(d2);
 	ans.Print();
