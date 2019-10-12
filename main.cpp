@@ -6,7 +6,7 @@ int main()
 {
 	
 	TRational d1, d2, ans;
-	if (d1.Write(std::cin) || d2.Write(std::cin) == 1) {
+	if (d1.Read(std::cin) || d2.Read(std::cin) == 1) {
 		return 0;
 	}
 	

@@ -2,7 +2,7 @@
 
 
 
-int TRational::Write(std::istream& in) {
+int TRational::Read(std::istream& in) {
 	int a, b;
 	char c;
 	in >> a;
@@ -26,38 +26,44 @@ void TRational::Reduce()
 	if (x == 0 || y == 0) {
 		return;
 	}
-	while (x != y) {
-		if (x < y) {
-			y -= x;
+	while (x != 0 && y != 0) {
+		if (x > y) {
+			x = x % y;
 		} else {
-			x -= y;
+			y = y % x;
 		}	
 	}
-	this->a = this->a / x;
-	this->b = this->b / x;
+	this->a = this->a / (x + y);
+	this->b = this->b / (x + y);
 }
 
-const TRational TRational::Add(const TRational &d1)
+TRational TRational::Add(const TRational &d1) const
 {
 	TRational tmp(a * d1.b + b * d1.a, b * d1.b);
 	tmp.Reduce();
 	return tmp;
 	
 }
-const TRational TRational::Div(const TRational &d1)
+TRational TRational::Div(const TRational &d1) const
 {
+	if (a < 0 && d1.a < 0) {
+		TRational tmp(abs(a * d1.b), abs(b * d1.a));
+		tmp.Reduce();
+		return tmp;
+
+	}
 	TRational tmp(a * d1.b,  b * d1.a);
 	tmp.Reduce();
 	return tmp;
 }
-const TRational TRational::Sub(const TRational &d1)
+TRational TRational::Sub(const TRational &d1) const
 {
 	TRational tmp(a * d1.b - b * d1.a, b * d1.b);
 	tmp.Reduce();
 	return tmp;
 }
 
-const TRational TRational::Mul(const TRational &d1)
+TRational TRational::Mul(const TRational &d1) const
 {
 	TRational tmp(a * d1.a, b * d1.b);
 	tmp.Reduce();
