@@ -70,7 +70,7 @@ TRational TRational::Mul(const TRational &d1) const
 	return tmp;
 }
 
-int TRational::Compare(const TRational& d1)
+int TRational::Compare(const TRational& d1) const
 {
 	if (a * d1.b > b * d1.a) {
 		return 1;
@@ -84,7 +84,7 @@ int TRational::Compare(const TRational& d1)
 	
 }
 
-void TRational::Print(std::ostream& os) {
+void TRational::Print(std::ostream& os) const{
 	if (this->a == 0 || this->b == 0) {
 		os << 0;
 		return;

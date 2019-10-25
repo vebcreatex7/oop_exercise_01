@@ -16,9 +16,9 @@ public:
 	 TRational Div(const TRational &d1) const;
 	 TRational Sub(const TRational &d1) const;
 	 TRational Mul(const TRational &d1) const;
-	int Compare(const TRational &d1);
+	int Compare(const TRational &d1) const;
 	void Reduce();
-	void Print(std::ostream&);
+	void Print(std::ostream&) const;
 };
 
 #endif
